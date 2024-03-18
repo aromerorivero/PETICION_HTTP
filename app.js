@@ -6,13 +6,12 @@ const validSurname = require("./middleware/validation")
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
 
-    app.get("/:surname", (req, res) => {
+    app.get("/:surname",validSurname, (req, res) => {
         res.send(alumnsSurname(req.params.surname));
+        
     });
 
 
         
 
     })
-
-
